@@ -40,9 +40,9 @@ for rows in points[:-1]:
     y=0
     for columns in rows[:-1]:
         d = (math.sqrt((x / 26.0) ** 2 + (y / 43.0) **2))
-        r = str(int(R_START + r_dif * d + R_RANDOMNESS * (2 * random.random() - 1 ) ** 2))
-        g = str(int(G_START + g_dif * d + G_RANDOMNESS * (2 * random.random() - 1 ) ** 2))
-        b = str(int(B_START + b_dif * d + B_RANDOMNESS * (2 * random.random() - 1 ) ** 2))
+        r = str(max(255, int(R_START + r_dif * d + R_RANDOMNESS * (2 * random.random() - 1 ) ** 2)))
+        g = str(max(255, int(G_START + g_dif * d + G_RANDOMNESS * (2 * random.random() - 1 ) ** 2)))
+        b = str(max(255, int(B_START + b_dif * d + B_RANDOMNESS * (2 * random.random() - 1 ) ** 2)))
         color = "style='fill:rgb(" + r + "," + g + "," + b + ");'" 
         if(x % 2 == 1):
             svgStr+="<polygon points='" + str(points[x][y][0]) + ","+ str(points[x][y][1]) + " " + str(points[x][y + 1][0]) +"," + str(points[x][y + 1][1]) + " " + str(points[x + 1][y + 1][0]) + "," +str(points[x + 1][y + 1][1]) + "' " + color + " />\n"
